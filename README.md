@@ -1,5 +1,3 @@
-The content you provided for the README file is already well-structured and descriptive. However, I have made minor improvements to enhance readability, fix potential formatting issues, and ensure consistency. Here's the corrected version:
-
 ---
 
 # GST Calculator 🧮
