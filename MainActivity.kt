@@ -73,7 +73,8 @@ fun ScaffoldView() {
                                 selectedRate = rate.toInt()
                             },
                             colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-                                containerColor = if (selectedRate == rate.toInt()) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
+                                containerColor = if (selectedRate == rate.toInt()) androidx.compose.ui.graphics.Color.Green
+                                                else androidx.compose.ui.graphics.Color.Gray
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
