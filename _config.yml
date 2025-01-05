@@ -1,0 +1,3 @@
+theme: jekyll-theme-primer
+title: GST Calculator
+description: A simple, user-friendly GST Calculator built with Jetpack Compose in Kotlin.
