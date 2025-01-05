@@ -1,8 +1,10 @@
+The content you provided for the README file is already well-structured and descriptive. However, I have made minor improvements to enhance readability, fix potential formatting issues, and ensure consistency. Here's the corrected version:
+
 ---
 
 # GST Calculator 🧮
 
-A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **Kotlin**. This app allows users to calculate GST (Goods and Services Tax) by entering the amount and selecting the GST rate. It supports dynamic rate selection, bidirectional calculations, and GST breakdowns for IGST, CGST, and SGST.
+A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **Kotlin**. This app enables users to calculate GST (Goods and Services Tax) by entering the amount and selecting the GST rate. It supports dynamic rate selection, bidirectional calculations, and provides GST breakdowns for IGST, CGST, and SGST.
 
 ---
 
@@ -15,7 +17,7 @@ A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **K
   - Directly enter the GST amount for reverse calculations.
 - **GST Breakdown**: Displays IGST, CGST, and SGST values.
 - **Clear Functionality**: Resets all inputs and highlights the "Clear" button in red.
-- **Responsive UI**: Designed to work on devices of all screen sizes, with buttons arranged in two rows.
+- **Responsive UI**: Optimized for devices of all screen sizes, with buttons arranged in two rows.
 
 ---
 
@@ -23,7 +25,7 @@ A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **K
 
 - **Kotlin**: Programming language.
 - **Jetpack Compose**: Declarative UI framework for building native Android apps.
-- **Material3**: For modern UI design components.
+- **Material3**: Modern UI design components.
 
 ---
 
@@ -39,7 +41,7 @@ A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **K
 
 3. **Build and Run**:
    - Connect an Android device or start an emulator.
-   - Click on the "Run" button to install and run the app.
+   - Click on the "Run" button to install and launch the app.
 
 ---
 
@@ -56,15 +58,15 @@ A simple, user-friendly **GST Calculator** built with **Jetpack Compose** in **K
 
 ## ✨ Highlights
 
-- **Real-Time Updates**: Values auto-update when inputs or GST rates change.
+- **Real-Time Updates**: Values auto-update dynamically when inputs or GST rates are modified.
 - **Validation**: Ensures inputs are valid numerical values.
-- **Customizable**: Easily extend with additional GST rates or functionality.
+- **Customizable**: Easily extendable with additional GST rates or functionality.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests to improve this project.
+Contributions are welcome! Feel free to open issues or submit pull requests to enhance this project.
 
 ---
 
@@ -76,8 +78,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🌟 Acknowledgments
 
-Thanks to the open-source community for their inspiration and guidance in creating this project.
+Special thanks to the open-source community for their support and inspiration in creating this project.
 
 ---
-
-Feel free to copy, modify, and adjust the content as needed for your project.
