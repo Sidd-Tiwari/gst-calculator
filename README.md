@@ -1,4 +1,7 @@
 ---
+layout: default
+title: "GST Calculator"
+---
 
 # GST Calculator 🧮
 
