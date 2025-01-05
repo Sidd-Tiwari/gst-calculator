@@ -38,12 +38,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @Composable
 fun ScaffoldView() {
     val context = LocalContext.current
-    var gstRate by remember { mutableStateOf(18) }
-    var selectedRate by remember { mutableStateOf(18) } // Track the selected rate
+    var gstRate by remember { mutableStateOf(18.0) } // Use Double for GST rate
+    var selectedRate by remember { mutableStateOf(18.0) }
     var amountWithoutGst by remember { mutableStateOf("") }
     var amountWithGst by remember { mutableStateOf("") }
     var gstAmount by remember { mutableStateOf("") }
@@ -66,15 +65,14 @@ fun ScaffoldView() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    listOf(0.25, 3, 5).forEach { rate ->
+                    listOf(0.25, 3.0, 5.0).forEach { rate ->
                         Button(
                             onClick = {
-                                gstRate = rate.toInt()
-                                selectedRate = rate.toInt()
+                                gstRate = rate
+                                selectedRate = rate
                             },
                             colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-                                containerColor = if (selectedRate == rate.toInt()) androidx.compose.ui.graphics.Color.Green
-                                                else androidx.compose.ui.graphics.Color.Gray
+                                containerColor = if (selectedRate == rate) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
@@ -87,14 +85,14 @@ fun ScaffoldView() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    listOf(12, 18, 28).forEach { rate ->
-1                        Button(
+                    listOf(12.0, 18.0, 28.0).forEach { rate ->
+                        Button(
                             onClick = {
-                                gstRate = rate.toInt()
-                                selectedRate = rate.toInt()
+                                gstRate = rate
+                                selectedRate = rate
                             },
                             colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-                                containerColor = if (selectedRate == rate.toInt()) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
+                                containerColor = if (selectedRate == rate) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
@@ -179,8 +177,8 @@ fun ScaffoldView() {
         item {
             Button(
                 onClick = {
-                    gstRate = 18
-                    selectedRate = 18
+                    gstRate = 18.0
+                    selectedRate = 18.0
                     amountWithGst = ""
                     amountWithoutGst = ""
                     gstAmount = ""
@@ -195,6 +193,7 @@ fun ScaffoldView() {
         }
     }
 }
+
 // Input Validation
 fun validateInput(context: android.content.Context, input: String): Boolean {
     return if (input.isEmpty() || input.count { it == '.' } > 1 || input.contains(Regex("[^0-9.]"))) {
