@@ -22,8 +22,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gstcalculator.ui.theme.GSTCalculatorTheme
 
@@ -38,14 +40,20 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Preview
 @Composable
 fun ScaffoldView() {
     val context = LocalContext.current
-    var gstRate by remember { mutableStateOf(18.0) } // Use Double for GST rate
+    var gstRate by remember { mutableStateOf(18.0) }
     var selectedRate by remember { mutableStateOf(18.0) }
     var amountWithoutGst by remember { mutableStateOf("") }
     var amountWithGst by remember { mutableStateOf("") }
     var gstAmount by remember { mutableStateOf("") }
+
+    val isClearedButtonEnabled = remember (amountWithGst, amountWithoutGst, gstAmount){
+        amountWithoutGst.isNotEmpty() || amountWithGst.isNotEmpty() || gstAmount.isNotEmpty()
+    }
 
     LazyColumn(
         modifier = Modifier
@@ -70,9 +78,12 @@ fun ScaffoldView() {
                             onClick = {
                                 gstRate = rate
                                 selectedRate = rate
+                                amountWithGst = ""
+                                amountWithoutGst = ""
+                                gstAmount = ""
                             },
                             colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-                                containerColor = if (selectedRate == rate) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
+                                containerColor = if (selectedRate == rate) androidx.compose.ui.graphics.Color.Green  else androidx.compose.ui.graphics.Color.Gray
                             ),
                             modifier = Modifier.weight(1f)
                         ) {
@@ -90,6 +101,9 @@ fun ScaffoldView() {
                             onClick = {
                                 gstRate = rate
                                 selectedRate = rate
+                                amountWithGst = ""
+                                amountWithoutGst = ""
+                                gstAmount=""
                             },
                             colors = androidx.compose.material3.ButtonDefaults.buttonColors(
                                 containerColor = if (selectedRate == rate) androidx.compose.ui.graphics.Color.Green else androidx.compose.ui.graphics.Color.Gray
@@ -182,11 +196,12 @@ fun ScaffoldView() {
                     amountWithGst = ""
                     amountWithoutGst = ""
                     gstAmount = ""
-                    Toast.makeText(context, "Cleared", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Clear", Toast.LENGTH_SHORT).show()
                 },
                 colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-                    containerColor = androidx.compose.ui.graphics.Color.Red
-                )
+                    containerColor = if (isClearedButtonEnabled) androidx.compose.ui.graphics.Color.Red else Color.Gray
+                ),
+                enabled = isClearedButtonEnabled
             ) {
                 Text(text = "Clear")
             }
